@@ -1,1 +1,5 @@
-<div class="page-container bg-dark">Hey</div>
+<div class="page-container bg-dark">
+    <div>Array: [{{array}}]</div>
+    <div *ngIf="show">Sorted: [{{array}}]</div>
+    <button type="submit" (click)="bubbleSort()">Sort</button>
+</div>
