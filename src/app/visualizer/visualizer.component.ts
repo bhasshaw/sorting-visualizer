@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-visualizer',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class VisualizerComponent implements OnInit {
   array
   show:boolean
+  @Input() event;
 
   constructor() {
     this.array = [3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
@@ -17,6 +18,7 @@ export class VisualizerComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.event)
     // this.bubbleSort()
   }
 

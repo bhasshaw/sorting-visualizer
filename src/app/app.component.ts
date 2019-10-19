@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sorting-visualizer';
+  public clickedEvent;
+
+  childEventClicked(event) {
+    this.clickedEvent = event;
+  }
 }
