@@ -18,7 +18,6 @@ export class VisualizerComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.event)
     // this.bubbleSort()
   }
 
