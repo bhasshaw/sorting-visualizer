@@ -1,5 +1,6 @@
 <div class="page-container bg-dark">
     <div>Array: [{{array}}]</div>
-    <div *ngIf="show">Bubble Sorted: [{{array}}]</div>
+    <div *ngIf="showBubble">Bubble Sorted: [{{array}}]</div>
+    <div *ngIf="showMerge">Merge Sorted: [{{resultArray}}]</div>
     <button type="submit" (click)="whichSort()">Sort</button>
 </div>
