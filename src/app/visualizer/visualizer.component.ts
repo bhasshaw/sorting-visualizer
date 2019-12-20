@@ -7,22 +7,37 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VisualizerComponent implements OnInit {
   array
+  arrayRandom
+  arrayOrdered
+  arrayReversed
   show:boolean
-  @Input() event;
+  @Input() clickedEvent;
 
   constructor() {
     this.array = [3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
-    // this.arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
-    // this.arrayOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    // this.arrayReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+    this.arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+    this.arrayOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    this.arrayReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   }
 
   ngOnInit() {
-    // this.bubbleSort()
+
+  }
+
+  whichSort(){
+    console.log(this.clickedEvent)
+    if (this.clickedEvent === 'bubble'){
+      this.bubbleSort()
+    } else if (this.clickedEvent === 'quick'){
+      console.log('quick selected')
+    } else  if (this.clickedEvent === 'merge'){
+      console.log('merge selected')
+    } else {
+      console.log('no sorting method chose')
+    }
   }
 
   bubbleSort() {
-    console.log('bubblesort')
     let swapp
     let n = this.array.length - 1
     let x = this.array;
@@ -42,6 +57,10 @@ export class VisualizerComponent implements OnInit {
     this.show = true;
     console.log(this.array)
     return x
+  }
+
+  revertOrder(){
+
   }
 
 }
