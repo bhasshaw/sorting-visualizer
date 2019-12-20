@@ -45,27 +45,27 @@ export class VisualizerComponent implements OnInit {
   bubbleSort() {
     let swap
     let n = this.array.length - 1
-    let x = this.array;
+    let unsortedArray = this.array;
     do {
       swap = false;
       for (let i = 0; i < n; i++) {
-        if (x[i] > x[i + 1]) {
-          let temp = x[i]
-          x[i] = x[i + 1]
-          x[i + 1] = temp
+        if (unsortedArray[i] > unsortedArray[i + 1]) {
+          let temp = unsortedArray[i]
+          unsortedArray[i] = unsortedArray[i + 1]
+          unsortedArray[i + 1] = temp
           swap = true
         }
       }
       n--
     } while (swap)
     this.showBubble = true;
-    return x
+    return unsortedArray
   }
 
   mergeSort(unsortedArray) {
     console.log(unsortedArray)
     if (unsortedArray.length <= 1) {
-      return unsortedArray;
+      return unsortedArray
     }
     const middle = Math.floor(unsortedArray.length / 2)
     const left = unsortedArray.slice(0, middle)
@@ -74,21 +74,19 @@ export class VisualizerComponent implements OnInit {
   }
 
   merge(left, right) {
-    console.log('merge')
-    let resultArray = [], leftIndex = 0, rightIndex = 0;
+    let resultArray = [], leftIndex = 0, rightIndex = 0
 
     while (leftIndex < left.length && rightIndex < right.length) {
       if (left[leftIndex] < right[rightIndex]) {
-        resultArray.push(left[leftIndex]);
-        leftIndex++;
+        resultArray.push(left[leftIndex])
+        leftIndex++
       } else {
-        resultArray.push(right[rightIndex]);
+        resultArray.push(right[rightIndex])
         rightIndex++;
       }
     }
-    this.showMerge = true
-    console.log(resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex)))
-    return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+    console.log('result', resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex)))
+    return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
   }
 
   quickSort() {
