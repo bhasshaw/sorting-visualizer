@@ -1,8 +1,10 @@
-<div class="page-container bg-dark">
+<div class="page-container bg-dark text-center p-3">
     <div>Array: [{{arrayDummy}}]</div>
-    <div *ngIf="showBubble">Bubble Sorted: [{{array}}]</div>
-    <div *ngIf="showMerge">Merge Sorted: [{{array}}]</div>
-    <div *ngIf="showQuick">Quick Sorted: [{{array}}]</div>
-    <button type="submit" (click)="whichSort()">Sort</button>
-    <button *ngIf="showBubble || showMerge || showQuick" type="submit" (click)="revertOrder()">Revert</button>
+    <div *ngIf="showBubble" class="mt-3">Bubble Sorted: [{{array}}]</div>
+    <div *ngIf="showMerge" class="mt-3">Merge Sorted: [{{array}}]</div>
+    <div *ngIf="showQuick" class="mt-3">Quick Sorted: [{{array}}]</div>
+    <div class="w-75 mx-auto d-flex justify-content-around">
+        <button class="btn btn-primary" type="submit" (click)="whichSort()">Sort</button>
+        <button *ngIf="showBubble || showMerge || showQuick" class="btn btn-primary" type="submit" (click)="revertOrder()">Revert</button>
+    </div>
 </div>

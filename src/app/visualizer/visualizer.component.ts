@@ -14,7 +14,7 @@ export class VisualizerComponent implements OnInit {
   @Input() clickedEvent
 
   constructor() {
-    this.array = Array.from({length: 40}, () => Math.floor(Math.random() * 40))
+    this.array = Array.from({length: 15}, () => Math.floor(Math.random() * 15))
     this.arrayDummy = this.array
     this.showBubble = false
     this.showMerge = false
@@ -22,7 +22,7 @@ export class VisualizerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clickedEvent = 'bubble'
+
   }
 
   whichSort(){
@@ -83,6 +83,7 @@ export class VisualizerComponent implements OnInit {
       }
     }
     this.showMerge = true
+    console.log(sortedArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex)))
     return this.array = sortedArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
   }
 
