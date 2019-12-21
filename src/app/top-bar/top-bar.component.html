@@ -1,22 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-brand">Data Visualizer</div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Sorting Type
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" (click)="onClick(event = 'bubble')">Bubble Sort</a>
-                    <a class="dropdown-item" (click)="onClick(event = 'quick')">Quick Sort</a>
-                    <a class="dropdown-item" (click)="onClick(event = 'merge')">Merge Sort</a>
-                </div>
-            </li>
-        </ul>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active" (click)="onClick(event = 'bubble')">
+            <input type="radio" name="sorter" id="bubble">Bubble Sort
+        </label>
+        <label class="btn btn-secondary" (click)="onClick(event = 'quick')">
+            <input type="radio" name="sorter" id="quick">Quick Sort
+        </label>
+        <label class="btn btn-secondary" (click)="onClick(event = 'merge')">
+            <input type="radio" name="sorter" id="merge">Merge Sort
+        </label>
     </div>
 </nav>

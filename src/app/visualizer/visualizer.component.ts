@@ -22,7 +22,7 @@ export class VisualizerComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.clickedEvent = 'bubble'
   }
 
   whichSort(){
