@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VisualizerComponent implements OnInit {
   array
+  arrayDummy
   arrayRandom
   arrayOrdered
   arrayReversed
@@ -16,7 +17,8 @@ export class VisualizerComponent implements OnInit {
   @Input() clickedEvent;
 
   constructor() {
-    this.array = [3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
+    this.arrayDummy = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
+    this.array = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
     this.showBubble = false
     this.showMerge = false
     this.showQuick = false
@@ -63,7 +65,6 @@ export class VisualizerComponent implements OnInit {
   }
 
   mergeSort(unsortedArray) {
-    console.log(unsortedArray)
     if (unsortedArray.length <= 1) {
       return unsortedArray
     }
@@ -74,19 +75,19 @@ export class VisualizerComponent implements OnInit {
   }
 
   merge(left, right) {
-    let resultArray = [], leftIndex = 0, rightIndex = 0
+    let sortedArray = [], leftIndex = 0, rightIndex = 0
 
     while (leftIndex < left.length && rightIndex < right.length) {
       if (left[leftIndex] < right[rightIndex]) {
-        resultArray.push(left[leftIndex])
+        sortedArray.push(left[leftIndex])
         leftIndex++
       } else {
-        resultArray.push(right[rightIndex])
+        sortedArray.push(right[rightIndex])
         rightIndex++;
       }
     }
-    console.log('result', resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex)))
-    return resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
+    this.showMerge = true
+    return this.array = sortedArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
   }
 
   quickSort() {
@@ -94,7 +95,9 @@ export class VisualizerComponent implements OnInit {
   }
 
   revertOrder(){
-
+    this.array = this.arrayDummy
+    this.showBubble = false
+    this.showMerge = false
   }
 
 }
