@@ -14,8 +14,8 @@ export class VisualizerComponent implements OnInit {
   @Input() clickedEvent
 
   constructor() {
-    this.arrayDummy = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
-    this.array = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
+    this.array = Array.from({length: 40}, () => Math.floor(Math.random() * 40))
+    this.arrayDummy = this.array
     this.showBubble = false
     this.showMerge = false
     this.showQuick = false
