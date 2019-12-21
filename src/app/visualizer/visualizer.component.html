@@ -2,6 +2,7 @@
     <div>Array: [{{arrayDummy}}]</div>
     <div *ngIf="showBubble">Bubble Sorted: [{{array}}]</div>
     <div *ngIf="showMerge">Merge Sorted: [{{array}}]</div>
+    <div *ngIf="showQuick">Quick Sorted: [{{array}}]</div>
     <button type="submit" (click)="whichSort()">Sort</button>
-    <button *ngIf="showBubble || showMerge" type="submit" (click)="revertOrder()">Revert</button>
+    <button *ngIf="showBubble || showMerge || showQuick" type="submit" (click)="revertOrder()">Revert</button>
 </div>

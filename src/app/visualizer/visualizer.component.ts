@@ -8,23 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class VisualizerComponent implements OnInit {
   array
   arrayDummy
-  arrayRandom
-  arrayOrdered
-  arrayReversed
   showBubble:boolean
   showMerge:boolean
   showQuick:boolean
-  @Input() clickedEvent;
+  @Input() clickedEvent
 
   constructor() {
-    this.arrayDummy = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
-    this.array = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
+    this.arrayDummy = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
+    this.array = [11, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10, 3, 5, 1, 3, 2, 8, 9, 6, 7, 10]
     this.showBubble = false
     this.showMerge = false
     this.showQuick = false
-    // this.arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
-    // this.array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    // this.arrayReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   }
 
   ngOnInit() {
@@ -33,9 +27,11 @@ export class VisualizerComponent implements OnInit {
 
   whichSort(){
     if (this.clickedEvent === 'bubble'){
+      console.log('bubble selected')
       this.bubbleSort()
     } else if (this.clickedEvent === 'quick'){
       console.log('quick selected')
+      this.quickSort(this.array)
     } else  if (this.clickedEvent === 'merge'){
       console.log('merge selected')
       this.mergeSort(this.array);
@@ -47,7 +43,7 @@ export class VisualizerComponent implements OnInit {
   bubbleSort() {
     let swap
     let n = this.array.length - 1
-    let unsortedArray = this.array;
+    let unsortedArray = this.array
     do {
       swap = false;
       for (let i = 0; i < n; i++) {
@@ -60,7 +56,7 @@ export class VisualizerComponent implements OnInit {
       }
       n--
     } while (swap)
-    this.showBubble = true;
+    this.showBubble = true
     return unsortedArray
   }
 
@@ -90,14 +86,34 @@ export class VisualizerComponent implements OnInit {
     return this.array = sortedArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
   }
 
-  quickSort() {
+  quickSort(unsortedArray) {
+      if (unsortedArray.length <= 1) {
+        return unsortedArray
+      } else {
 
+        let left = []
+        let right = []
+        let newArray = []
+        let pivot = unsortedArray.pop()
+        let length = unsortedArray.length
+
+        for (let i = 0; i < length; i++) {
+          if (unsortedArray[i] <= pivot) {
+            left.push(unsortedArray[i])
+          } else {
+            right.push(unsortedArray[i])
+          }
+        }
+        this.showQuick = true
+        return this.array = newArray.concat(this.quickSort(left), pivot, this.quickSort(right))
+      }
   }
 
   revertOrder(){
     this.array = this.arrayDummy
     this.showBubble = false
     this.showMerge = false
+    this.showQuick = false
   }
 
 }
