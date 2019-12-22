@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="navbar-brand">Data Visualizer</div>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary" (click)="onClick(event = 'bubble')">
+        <label class="btn btn-secondary" (click)="onClick(event = 'bubble'); revertOrder();">
             <input type="radio" name="sorter" id="bubble">Bubble Sort
         </label>
-        <label class="btn btn-secondary" (click)="onClick(event = 'quick')">
+        <!-- <label class="btn btn-secondary" (click)="onClick(event = 'quick')">
             <input type="radio" name="sorter" id="quick">Quick Sort
-        </label>
-        <label class="btn btn-secondary" (click)="onClick(event = 'merge')">
+        </label> -->
+        <label class="btn btn-secondary" (click)="onClick(event = 'merge'); revertOrder();">
             <input type="radio" name="sorter" id="merge">Merge Sort
         </label>
     </div>

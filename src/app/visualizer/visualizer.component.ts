@@ -14,7 +14,8 @@ export class VisualizerComponent implements OnInit {
   @Input() clickedEvent
 
   constructor() {
-    this.array = Array.from({length: 15}, () => Math.floor(Math.random() * 15))
+    // this.array = Array.from({length: 15}, () => Math.floor(Math.random() * 15))
+    this.array = [1, 7, 2, 5, 3, 9]
     this.arrayDummy = this.array
     this.showBubble = false
     this.showMerge = false
@@ -27,13 +28,13 @@ export class VisualizerComponent implements OnInit {
 
   whichSort(){
     if (this.clickedEvent === 'bubble'){
-      console.log('bubble selected')
+      console.log('bubble selected', this.array)
       this.bubbleSort()
     } else if (this.clickedEvent === 'quick'){
-      console.log('quick selected')
+      console.log('quick selected', this.array)
       this.quickSort(this.array)
     } else  if (this.clickedEvent === 'merge'){
-      console.log('merge selected')
+      console.log('merge selected', this.array)
       this.mergeSort(this.array);
     } else {
       console.log('no sorting method chose')
@@ -83,11 +84,11 @@ export class VisualizerComponent implements OnInit {
       }
     }
     this.showMerge = true
-    console.log(sortedArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex)))
     return this.array = sortedArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex))
   }
 
   quickSort(unsortedArray) {
+    console.log('unsorted', unsortedArray)
       if (unsortedArray.length <= 1) {
         return unsortedArray
       } else {
@@ -106,6 +107,7 @@ export class VisualizerComponent implements OnInit {
           }
         }
         this.showQuick = true
+        console.log(pivot)
         return this.array = newArray.concat(this.quickSort(left), pivot, this.quickSort(right))
       }
   }
